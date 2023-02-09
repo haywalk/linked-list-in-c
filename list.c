@@ -90,7 +90,7 @@ void queue_demo()
 void add_to_front(struct linkedlist **list, int data)
 {
 	/* allocate RAM for the new node */
-	struct linkedlist *new = (struct linkedlist *) malloc(sizeof(**list));
+	struct linkedlist *new = (struct linkedlist *) malloc(sizeof(struct linkedlist));
 	
 	/* set the new node's data */
 	new->data = data;
@@ -106,7 +106,7 @@ void add_to_front(struct linkedlist **list, int data)
 void add_to_end(struct linkedlist **list, int data)
 {
 	/* create a new node */
-	struct linkedlist *new = (struct linkedlist *) malloc(sizeof(**list));
+	struct linkedlist *new = (struct linkedlist *) malloc(sizeof(struct linkedlist));
 	new->data = data;
 	new->next = NULL;
 
