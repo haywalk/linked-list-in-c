@@ -1,5 +1,5 @@
 # Makefile for list.c
-# Hayden Walker, 2022-02-09
+# Hayden Walker, 2023-02-09
 
 CC = gcc
 CFLAGS = -std=c89
