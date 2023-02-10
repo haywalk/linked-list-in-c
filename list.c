@@ -8,15 +8,15 @@
 #include <stdlib.h>
 
 /* Create a structure for a node in a linked list */
-struct linkedlist {
+typedef struct linkedlist {
 	int data;
 	struct linkedlist *next;
-};
+} linkedlist;
 
 /* List functions */
-void add_to_front(struct linkedlist **list, int data);
-void add_to_end(struct linkedlist **list, int data);
-int remove_element(struct linkedlist **list);
+void add_to_front(linkedlist **list, int data);
+void add_to_end(linkedlist **list, int data);
+int remove_element(linkedlist **list);
 
 /* Demo functions */
 void stack_demo();
@@ -45,7 +45,7 @@ void stack_demo()
 	printf("A linked list can work as a stack!\n");
 
 	/* create an empty list */
-	struct linkedlist *list = NULL;
+	linkedlist *list = NULL;
 	
 	/* add some numbers and print them */
 	int i;
@@ -69,7 +69,7 @@ void queue_demo()
 	printf("A linked list can also be a queue!\n");
 
 	/* create an empty list */
-	struct linkedlist *list = NULL;
+	linkedlist *list = NULL;
 	
 	/* add some numbers and print them */
 	int i;
@@ -87,10 +87,10 @@ void queue_demo()
 /*
  * Add an element to the front of a list.
  */
-void add_to_front(struct linkedlist **list, int data)
+void add_to_front(linkedlist **list, int data)
 {
 	/* allocate RAM for the new node */
-	struct linkedlist *new = (struct linkedlist *) malloc(sizeof(struct linkedlist));
+	linkedlist *new = (linkedlist *) malloc(sizeof(linkedlist));
 	
 	/* set the new node's data */
 	new->data = data;
@@ -103,10 +103,10 @@ void add_to_front(struct linkedlist **list, int data)
 /*
  * Add an element to the end of the list
  */
-void add_to_end(struct linkedlist **list, int data)
+void add_to_end(linkedlist **list, int data)
 {
 	/* create a new node */
-	struct linkedlist *new = (struct linkedlist *) malloc(sizeof(struct linkedlist));
+	linkedlist *new = (linkedlist *) malloc(sizeof(linkedlist));
 	new->data = data;
 	new->next = NULL;
 
@@ -117,7 +117,7 @@ void add_to_end(struct linkedlist **list, int data)
 	}
 
 	/* otherwise traverse until the last node */
-	struct linkedlist *current = *list;
+	linkedlist *current = *list;
 
 	while(current->next != NULL)
 		current = current->next;
@@ -129,10 +129,10 @@ void add_to_end(struct linkedlist **list, int data)
 /*
  * Remove an element from the front of a list.
  */
-int remove_element(struct linkedlist **list)
+int remove_element(linkedlist **list)
 {
 	/* get the pointer to the node we're removing */
-	struct linkedlist *to_remove = *list;
+	linkedlist *to_remove = *list;
 
 	/* get its data and remove it */
 	int data = to_remove->data;
